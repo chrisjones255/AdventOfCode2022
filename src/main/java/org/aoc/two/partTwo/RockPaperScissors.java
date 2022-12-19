@@ -24,30 +24,46 @@ public class RockPaperScissors {
 
             while (line != null) {
                 currentLine = line.split(" ");
-                if (currentLine[1].equals("X")) {
-                    if (currentLine[0].equals("A")) {
-                        totalPoints += 3;
-                    } else if (currentLine[0].equals("B")) {
-                        totalPoints += 1;
-                    } else if (currentLine[0].equals("C")) {
-                        totalPoints += 2;
-                    }
-                } else if (currentLine[1].equals("Y")) {
-                    if (currentLine[0].equals("A")) {
-                        totalPoints += 4;
-                    } else if (currentLine[0].equals("B")) {
-                        totalPoints += 5;
-                    } else if (currentLine[0].equals("C")) {
-                        totalPoints += 6;
-                    }
-                } else if (currentLine[1].equals("Z")) {
-                    if (currentLine[0].equals("A")) {
-                        totalPoints += 8;
-                    } else if (currentLine[0].equals("B")) {
-                        totalPoints += 9;
-                    } else if (currentLine[0].equals("C")) {
-                        totalPoints += 7;
-                    }
+                switch (currentLine[1]) {
+                    case "X":
+                        switch (currentLine[0]) {
+                            case "A":
+                                totalPoints += 3;
+                                break;
+                            case "B":
+                                totalPoints += 1;
+                                break;
+                            case "C":
+                                totalPoints += 2;
+                                break;
+                        }
+                        break;
+                    case "Y":
+                        switch (currentLine[0]) {
+                            case "A":
+                                totalPoints += 4;
+                                break;
+                            case "B":
+                                totalPoints += 5;
+                                break;
+                            case "C":
+                                totalPoints += 6;
+                                break;
+                        }
+                        break;
+                    case "Z":
+                        switch (currentLine[0]) {
+                            case "A":
+                                totalPoints += 8;
+                                break;
+                            case "B":
+                                totalPoints += 9;
+                                break;
+                            case "C":
+                                totalPoints += 7;
+                                break;
+                        }
+                        break;
                 }
                 line = reader.readLine();
             }

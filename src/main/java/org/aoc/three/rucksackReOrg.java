@@ -12,7 +12,6 @@ public class rucksackReOrg {
 
         int prioritySum = 0;
         String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        Character commonChar = null;
         boolean counted = false;
 
         try {

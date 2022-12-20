@@ -9,28 +9,29 @@ public class rucksackReOrg {
     public static void main(String[] args) {
         BufferedReader reader;
 
-        int prioritySum = 0;
+        int badgePrioritySum = 0;
         String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        Character commonChar = null;
-        boolean counted = false;
+        boolean found = false;
 
         try {
             reader = new BufferedReader(new FileReader(args[0]));
             String line = reader.readLine();
+            String commonLetters = "";
 
             while (line != null) {
-                String compartment1 = line.substring(0, line.length() / 2);
-                String compartment2 = line.substring(line.length() / 2);
+                String line1 = line;
+                String line2 = reader.readLine();
+                String line3 = reader.readLine();
 
-                for (char c : compartment1.toCharArray()) {
-                    if(!counted){
-                        if (compartment2.contains(Character.toString(c))) {
-                            prioritySum += ((characters.indexOf(c)) + 1);
-                            counted = true;
+                for (char c : line1.toCharArray()) {
+                    if(!found) {
+                        if (line2.contains(Character.toString(c)) && line3.contains(Character.toString(c))) {
+                            badgePrioritySum += ((characters.indexOf(c)) + 1);
+                            found = true;
                         }
                     }
                 }
-                counted = false;
+                found = false;
 
                 line = reader.readLine();
             }
@@ -39,6 +40,6 @@ public class rucksackReOrg {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Sum of the priorities: " + prioritySum);
+        System.out.println("Sum of the priorities: " + badgePrioritySum);
     }
 }

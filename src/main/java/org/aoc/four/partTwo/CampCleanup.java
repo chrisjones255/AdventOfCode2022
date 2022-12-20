@@ -19,7 +19,10 @@ public class CampCleanup {
 
             while(line != null) {
                 sections = Arrays.stream(line.split(",|-")).map(Integer::parseInt).collect(Collectors.toList());
-                if((sections.get(1) >= sections.get(2))) {
+                if(((sections.get(2) >= sections.get(0)) && (sections.get(2) <= sections.get(1))) ||
+                        ((sections.get(3) >= sections.get(0)) && (sections.get(3) <= sections.get(1))) ||
+                        ((sections.get(0) >= sections.get(2)) && (sections.get(0) <= sections.get(3))) ||
+                        ((sections.get(1) >= sections.get(2)) && (sections.get(1) <= sections.get(3)))) {
                     count++;
                 }
                 line = reader.readLine();
